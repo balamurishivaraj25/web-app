@@ -1,6 +1,11 @@
 pipeline {
     agent any
     stages {
+        stage("code checkout") {
+            steps {
+                git credentialsId: 'git-token', branch: 'main', url: 'https://github.com/balamurishivaraj25/web-app.git'
+            }
+        }
         stage("Build") {
             steps {
                 sh '''echo "this is my build stage"'''
